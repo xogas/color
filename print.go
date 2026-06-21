@@ -5,8 +5,7 @@ import (
 	"io"
 )
 
-// Set sets the given SGR attributes on the global Output immediately. Call
-// Unset() when done.
+// Set sets the given SGR attributes on the global Output immediately. Call Unset() when done.
 func Set(p ...Attribute) *Color {
 	c := New(p...)
 	c.set()
@@ -60,16 +59,14 @@ func (c *Color) Print(a ...any) (n int, err error) {
 	return fmt.Fprint(Output, a...)
 }
 
-// Printf formats according to a format specifier and writes to Output with
-// color applied.
+// Printf formats according to a format specifier and writes to Output with color applied.
 func (c *Color) Printf(format string, a ...any) (n int, err error) {
 	c.set()
 	defer c.unset()
 	return fmt.Fprintf(Output, format, a...)
 }
 
-// Println formats and writes to Output with color applied. A newline is always
-// appended.
+// Println formats and writes to Output with color applied. A newline is always appended.
 func (c *Color) Println(a ...any) (n int, err error) {
 	return fmt.Fprintln(Output, c.wrap(fmt.Sprint(a...)))
 }
@@ -79,36 +76,33 @@ func (c *Color) Sprint(a ...any) string {
 	return c.wrap(fmt.Sprint(a...))
 }
 
-// Sprintf formats according to a format specifier and returns the colorized
-// string.
+// Sprintf formats according to a format specifier and returns the colorized string.
 func (c *Color) Sprintf(format string, a ...any) string {
 	return c.wrap(fmt.Sprintf(format, a...))
 }
 
-// Sprintln formats using the default formats and returns the colorized string
-// with a trailing newline.
+// Sprintln formats using the default formats and
+// returns the colorized string with a trailing newline.
 func (c *Color) Sprintln(a ...any) string {
 	return c.wrap(fmt.Sprint(a...)) + "\n"
 }
 
-// Fprint formats and writes to w with color applied. Spaces are added between
-// operands when neither is a string.
+// Fprint formats and writes to w with color applied.
+// Spaces are added between operands when neither is a string.
 func (c *Color) Fprint(w io.Writer, a ...any) (n int, err error) {
 	c.SetWriter(w)
 	defer c.UnsetWriter(w)
 	return fmt.Fprint(w, a...)
 }
 
-// Fprintf formats according to a format specifier and writes to w with color
-// applied.
+// Fprintf formats according to a format specifier and writes to w with color applied.
 func (c *Color) Fprintf(w io.Writer, format string, a ...any) (n int, err error) {
 	c.SetWriter(w)
 	defer c.UnsetWriter(w)
 	return fmt.Fprintf(w, format, a...)
 }
 
-// Fprintln formats and writes to w with color applied. A newline is always
-// appended.
+// Fprintln formats and writes to w with color applied. A newline is always appended.
 func (c *Color) Fprintln(w io.Writer, a ...any) (n int, err error) {
 	return fmt.Fprintln(w, c.wrap(fmt.Sprint(a...)))
 }

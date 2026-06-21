@@ -4,7 +4,7 @@ Color provides colorized terminal output in Go using ANSI escape codes.
 
 ## Install
 
-```bash
+```sh
 go get github.com/xogas/color
 ```
 
@@ -75,6 +75,6 @@ c.EnableColor()
 c.Println("cyan again")
 ```
 
-## Licence
+## License
 
 The MIT License (MIT) - see [license](./license) for more details.
