@@ -1,0 +1,5 @@
+# color
+
+## License
+
+MIT - see [LICENSE](./LICENSE) for details.
