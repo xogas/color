@@ -94,6 +94,6 @@ BSDs and Windows. On Windows the console must support ANSI escape sequences
 (Windows 10 or later, or Windows Terminal); legacy conhost may need virtual
 terminal processing enabled. No build tags, no separate Windows console adapter.
 
-## LICENSE
+## License
 
 MIT - see [LICENSE](./LICENSE) for details.
